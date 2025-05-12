@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: Sense Track
+
+
+  data:
+    mongodb:
+      uri: mongodb+srv://yraf:MS3S4GlpoPHelcHu@SenseTrack.mongodb.net/sensetrack
