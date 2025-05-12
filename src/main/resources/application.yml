@@ -2,7 +2,14 @@ spring:
   application:
     name: Sense Track
 
-
   data:
     mongodb:
-      uri: mongodb+srv://yraf:MS3S4GlpoPHelcHu@SenseTrack.mongodb.net/sensetrack
+      uri: mongodb+srv://yraf:<db_password>@sensetrack.irgv4no.mongodb.net/?retryWrites=true&w=majority&appName=SenseTrack
+      database: senseTrackDB
+
+  springdoc:
+    api-docs:
+      enabled: true
+    swagger-ui:
+      enabled: true
+      path: /swagger-ui.html
