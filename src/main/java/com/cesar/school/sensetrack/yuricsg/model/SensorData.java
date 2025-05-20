@@ -1,20 +1,22 @@
 package com.cesar.school.sensetrack.yuricsg.model;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+
 
 import java.time.Instant;
 
 @Data
-@Document(collection = "sensor_data")
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "sensors")
 public class SensorData {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Double temperature;

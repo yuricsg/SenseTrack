@@ -2,10 +2,19 @@ spring:
   application:
     name: Sense Track
 
-  data:
-    mongodb:
-      uri: mongodb+srv://yraf:<db_password>@sensetrack.irgv4no.mongodb.net/?retryWrites=true&w=majority&appName=SenseTrack
-      database: senseTrackDB
+  datasource:
+    url: jdbc:postgresql://localhost:5433/sensetrack
+    username: postgres
+    password: 123
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
   springdoc:
     api-docs:
