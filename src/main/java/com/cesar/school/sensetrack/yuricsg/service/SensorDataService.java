@@ -1,10 +1,12 @@
 package com.cesar.school.sensetrack.yuricsg.service;
 
-import com.cesar.school.sensetrack.yuricsg.model.SensorData;
+import com.cesar.school.sensetrack.yuricsg.model.dtos.HomeAssistantSensorDataDTO;
+import com.cesar.school.sensetrack.yuricsg.model.entities.HomeAssistantSensorData;
 import com.cesar.school.sensetrack.yuricsg.repository.SensorDataRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class SensorDataService {
@@ -15,11 +17,15 @@ public class SensorDataService {
         this.repository = repository;
     }
 
-    public SensorData saveData(SensorData data) {
-        return repository.save(data);
+    public HomeAssistantSensorData saveData(HomeAssistantSensorDataDTO dto) {
+        var sensorData = new HomeAssistantSensorData(dto);
+        return repository.save(sensorData);
     }
 
-    public List<SensorData> getAllData() {
-        return repository.findAll();
+    public List<HomeAssistantSensorDataDTO> getAllData() {
+        return repository.findAll()
+                .stream()
+                .map(HomeAssistantSensorDataDTO::new)
+                .collect(Collectors.toList());
     }
 }

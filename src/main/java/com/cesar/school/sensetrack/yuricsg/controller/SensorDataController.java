@@ -1,7 +1,8 @@
 package com.cesar.school.sensetrack.yuricsg.controller;
 
-import com.cesar.school.sensetrack.yuricsg.model.SensorData;
-import com.cesar.school.sensetrack.yuricsg.repository.SensorDataRepository;
+import com.cesar.school.sensetrack.yuricsg.model.dtos.HomeAssistantSensorDataDTO;
+import com.cesar.school.sensetrack.yuricsg.model.entities.HomeAssistantSensorData;
+import com.cesar.school.sensetrack.yuricsg.service.SensorDataService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,19 +11,19 @@ import java.util.List;
 @RequestMapping("/api/sensors")
 public class SensorDataController {
 
-    private final SensorDataRepository repository;
+    private final SensorDataService service;
 
-    public SensorDataController(SensorDataRepository repository){
-        this.repository = repository;
+    public SensorDataController(SensorDataService _service){
+        service = _service;
     }
 
-    @PostMapping("/saveData")
-    public SensorData saveData(@RequestBody SensorData data) {
-        return repository.save(data);
+    @PostMapping
+    public HomeAssistantSensorData saveData(@RequestBody HomeAssistantSensorDataDTO dto) {
+        return service.saveData(dto);
     }
 
     @GetMapping
-    public List<SensorData> getAllData() {
-        return repository.findAll();
+    public List<HomeAssistantSensorDataDTO> getAllData() {
+        return service.getAllData();
     }
 }
