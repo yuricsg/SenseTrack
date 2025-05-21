@@ -1,24 +1,15 @@
 package com.cesar.school.sensetrack.yuricsg.model.dtos;
 
 import com.cesar.school.sensetrack.yuricsg.model.entities.HomeAssistantSensorData;
+import jakarta.persistence.JoinTable;
 
-public class HomeAssistantSensorDataDTO {
-
-    private Double temperature;
-    private Double humidity;
-    private String sensorId;
-
-    public HomeAssistantSensorDataDTO(HomeAssistantSensorData sensorData) {
-        temperature = sensorData.getTemperature();
-        humidity = sensorData.getHumidity();
-        sensorId = sensorData.getId();
+public record HomeAssistantSensorDataDTO(
+        Double temperature,
+        Double humidity,
+        String sensorNumber
+) {
+    public HomeAssistantSensorDataDTO(HomeAssistantSensorData entity) {
+        this(entity.getTemperature(), entity.getHumidity(), entity.getId());
     }
 
-    public Double getTemperature() {
-        return temperature;
-    }
-
-    public Double getHumidity() {
-        return humidity;
-    }
 }

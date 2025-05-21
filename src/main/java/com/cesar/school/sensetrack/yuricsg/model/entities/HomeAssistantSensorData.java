@@ -20,24 +20,40 @@ public class HomeAssistantSensorData {
     public HomeAssistantSensorData() {}
 
     public HomeAssistantSensorData(HomeAssistantSensorDataDTO dto) {
-        temperature = dto.getTemperature();
-        humidity = dto.getHumidity();
-        timestamp = Instant.now();
+        this.temperature = dto.temperature();
+        this.humidity = dto.humidity();
+        this.timestamp = Instant.now();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public Double getTemperature() {
         return temperature;
     }
 
+    public void setTemperature(Double temperature) {
+        this.temperature = temperature;
+    }
+
     public Double getHumidity() {
         return humidity;
+    }
+
+    public void setHumidity(Double humidity) {
+        this.humidity = humidity;
     }
 
     public Instant getTimestamp() {
         return timestamp;
     }
 
-    public String getId() {
-        return id;
+    public void setTimestamp(Instant timestamp) {
+        this.timestamp = timestamp;
     }
 }

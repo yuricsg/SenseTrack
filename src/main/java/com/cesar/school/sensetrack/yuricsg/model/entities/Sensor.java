@@ -11,11 +11,13 @@ public class Sensor {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     private String name;
+    private Double number;
 
     public Sensor() {}
 
     public Sensor(SensorDTO dto) {
         name = dto.name();
+        number = dto.number();
     }
 
     public String getName() {
@@ -28,5 +30,17 @@ public class Sensor {
 
     public void setName(String _name) {
         name = _name;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Double getNumber() {
+        return number;
+    }
+
+    public void setNumber(Double number) {
+        this.number = number;
     }
 }
