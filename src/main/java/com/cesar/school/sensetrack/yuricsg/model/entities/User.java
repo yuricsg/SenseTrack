@@ -1,5 +1,7 @@
 package com.cesar.school.sensetrack.yuricsg.model.entities;
 
+import com.cesar.school.sensetrack.yuricsg.model.dtos.CreateUserDTO;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -7,8 +9,8 @@ import jakarta.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
 
     private String username;
     private String email;
@@ -16,12 +18,14 @@ public class User {
 
     public User() {}
 
-    public Long getId() {
-        return id;
+    public User(CreateUserDTO dto) {
+        this.username = dto.username();
+        this.email = dto.email();
+        this.password = dto.password();
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getId() {
+        return id;
     }
 
     public String getUsername() {

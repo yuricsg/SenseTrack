@@ -14,7 +14,6 @@ import java.util.List;
 @RequestMapping("/api/sensors")
 public class SensorController {
 
-
     @Autowired
     private SensorService sensorService;
 
