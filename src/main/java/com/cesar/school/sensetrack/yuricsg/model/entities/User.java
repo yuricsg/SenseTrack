@@ -9,8 +9,8 @@ import jakarta.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String username;
     private String email;
@@ -24,7 +24,7 @@ public class User {
         this.password = dto.password();
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 

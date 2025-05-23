@@ -10,8 +10,8 @@ import java.time.Instant;
 public class HomeAssistantSensorData {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private Double temperature;
     private Double humidity;
@@ -25,11 +25,11 @@ public class HomeAssistantSensorData {
         this.timestamp = Instant.now();
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

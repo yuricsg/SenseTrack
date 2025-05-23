@@ -8,8 +8,8 @@ import jakarta.persistence.*;
 public class Sensor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private Double number;
 
@@ -24,7 +24,7 @@ public class Sensor {
         return name;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
@@ -32,7 +32,7 @@ public class Sensor {
         name = _name;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

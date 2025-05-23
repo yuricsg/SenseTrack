@@ -3,6 +3,7 @@ package com.cesar.school.sensetrack.yuricsg.controller;
 import com.cesar.school.sensetrack.yuricsg.model.dtos.HomeAssistantSensorDataDTO;
 import com.cesar.school.sensetrack.yuricsg.model.entities.HomeAssistantSensorData;
 import com.cesar.school.sensetrack.yuricsg.service.SensorDataService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class SensorDataController {
     }
 
     @PostMapping
-    public HomeAssistantSensorData saveData(@RequestBody HomeAssistantSensorDataDTO dto) {
+    public HomeAssistantSensorData saveData(@RequestBody @Valid HomeAssistantSensorDataDTO dto) {
         return service.saveData(dto);
     }
 
